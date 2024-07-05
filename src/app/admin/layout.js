@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Backend | Space Between People",
-  description: "Welcome to the Backend of Space Between People",
+  title: "Backend | Cite",
+  description: "Welcome to the Backend of Cite",
 };
 
 export default function RootLayout({ children }) {

@@ -29,18 +29,18 @@ const Nav = () => {
       <Link className={pathname === "/" ? "activeLink" : ""} href="/">
         Cite
       </Link>
-      {/* <Link className={pathname === "/liste" ? "activeLink" : ""} href="/liste">
+      <Link className={pathname === "/liste" ? "activeLink" : ""} href="/liste">
         Liste
-      </Link> */}
+      </Link>
       <Link className={pathname === "/info" ? "activeLink" : ""} href="/info">
         Info
       </Link>
-      {/* <Link
+      <Link
         className={pathname === "/kontakt" ? "activeLink" : ""}
         href="/kontakt"
       >
         Kontakt
-      </Link> */}
+      </Link>
     </div>
   );
 };

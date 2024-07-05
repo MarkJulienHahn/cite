@@ -9,8 +9,6 @@ export default async function page(params) {
     (entry) => entry.slug.current == params.params.slug
   );
 
-  console.log(project);
-
   return (
     <main>
       <div className="videoSingleWrapper">
