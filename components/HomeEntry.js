@@ -1,3 +1,5 @@
+"use client"
+
 import HomeVideoPreview from "./HomeVideoPreview";
 import React from "react";
 
@@ -11,17 +13,18 @@ const renderPreview = (entry) => (
     embedded={entry?.content?.embedded}
     slug={entry?.slug}
     external={entry?.content?.externalLink}
-
   />
 );
 
 const HomeEntry = ({ entry }) => {
   const { singleEntry, quadEntry } = entry;
 
-  console.log(entry)
+  console.log(entry);
 
   return singleEntry ? (
-    <>{renderPreview(singleEntry)}</>
+    <>
+      {renderPreview(singleEntry)}
+    </>
   ) : (
     <div className="quadWrapper">
       {["one", "two", "three", "four"].map((key) => (
