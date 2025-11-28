@@ -15,8 +15,5 @@ export const myStructure = (S, context) =>
         .title("About")
         .id("about")
         .child(S.document().schemaType("about").documentId("about")),
-
       S.divider(),
-
-      S.documentTypeListItem("projects").title("Projects"),
     ]);

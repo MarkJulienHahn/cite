@@ -85,9 +85,10 @@ export default defineType({
   ],
 
   preview: {
+    select: {},
     prepare() {
       return {
-        title: "Info",
+        title: "About",
       };
     },
   },
