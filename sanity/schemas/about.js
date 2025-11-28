@@ -24,21 +24,6 @@ export default defineType({
       ],
     },
     {
-      name: "herausgeber",
-      type: "array",
-      of: [
-        {
-          name: "person",
-          type: "object",
-          fields: [
-            { name: "name", type: "string" },
-            { name: "role", type: "string" },
-            { name: "contact", type: "string" },
-          ],
-        },
-      ],
-    },
-    {
       name: "personen",
       type: "array",
       of: [

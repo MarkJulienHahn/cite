@@ -24,7 +24,6 @@ const Nav = () => {
   return (
     <div
       className={`navWrapper ${visible ? "visible" : "hidden"}`}
-      style={{ color: pathname !== "/info" ? "white" : "var(--grey)" }}
     >
       <Link className={pathname === "/" ? "activeLink" : ""} href="/">
         Cite

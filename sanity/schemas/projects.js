@@ -27,23 +27,15 @@ export default defineType({
         },
       },
       fields: [
-        { name: "video", type: "boolean" },
-        {
-          name: "image",
-          type: "image",
-          description: "Hier kann man JPEG oder GIF einfügen.",
-          hidden: ({ parent }) => parent?.video === true,
-        },
         {
           name: "link",
           type: "string",
           description:
             "Hier kann man die Vimeo Video-ID einfügen, für ein Vimeo-Preview-Video.",
-          hidden: ({ parent }) => parent?.video !== true,
         },
         {
           name: "text",
-          title: "Previewtext",
+          title: "Preview Text",
           type: "object",
           initialValue: () => ({ color: "white" }),
           fields: [
@@ -108,23 +100,27 @@ export default defineType({
                   type: "string",
                   description:
                     "Der Videotitel wird in der Navigation oben angezeigt.",
+                  validation: (Rule) => Rule.required(),
                 },
                 {
                   name: "link",
                   type: "string",
                   description:
                     "Hier das <iframe/> Element von Youtube oder Vimeo einfügen.",
+                  validation: (Rule) => Rule.required(),
                 },
                 {
                   name: "description",
                   type: "text",
                   description:
                     "Kurzbeschreibung unter dem Video (ca. 2 – 3 Zeilen)",
+                  validation: (Rule) => Rule.required(),
                 },
                 {
                   name: "length",
                   type: "string",
                   description: "Videolänge im Format: 123:45 min",
+                  validation: (Rule) => Rule.required(),
                 },
               ],
             },
@@ -156,7 +152,7 @@ export default defineType({
               type: "object",
               fields: [
                 { name: "name", type: "string" },
-                { name: "position", type: "string" },
+                { name: "value", type: "string" },
               ],
             },
           ],
@@ -168,7 +164,7 @@ export default defineType({
             {
               name: "fotos",
               type: "array",
-              of: [{ name: "foto", type: "image" }],
+              of: [{ name: "foto", type: "image", description: "Maximal 500KB" }],
             },
             {
               name: "description",

@@ -8,23 +8,50 @@ const client = createClient({
 
 export default client;
 
-export async function getHome() {
-  return client.fetch(
-    groq`*[_type == "home"]|order(orderRank){"singleEntry": single->{title, slug, type, text, "pre": preview {..., "url": image {..., asset->{...}}}, ...}, 
-  "quadEntry": 
-      zwei{ 
-        one->{title, slug, type, vimeo, text, "pre": preview {..., "url": image {..., asset->{...}}}, ...}, 
-        two->{title, slug, type, vimeo, text, "pre": preview {..., "url": image {..., asset->{...}}}, ...}, 
-        three->{title, slug, type, vimeo, text, "pre": preview {..., "url": image {..., asset->{...}}}, ...}, 
-        four->{title, slug, type, vimeo, text, "pre": preview {..., "url": image {..., asset->{...}}}, ...}, 
-      }}`
-  );
-}
-
 export async function getProjects() {
-  return client.fetch(groq`*[_type == "projects"]|order(orderRank){...}`);
+  return client.fetch(groq`*[_type == "projects"] | order(_rank) {
+  _id,
+  title,
+  slug,
+  preview {
+    link,
+    text {
+      text,
+      color
+    }
+  },
+  content {
+    introtext,
+    headerVideo,
+    videos[] {
+      title,
+      link,
+      description,
+      length
+    },
+    text[],
+    infos[] {
+      name,
+      value
+    },
+    fotos {
+      fotos[] {
+        asset->{
+          _id,
+          url,
+          metadata {
+            dimensions,
+            lqip
+          }
+        }
+      },
+      description
+    }
+  }
+}
+`);
 }
 
-export async function getInfo() {
-  return client.fetch(groq`*[_type == "info"]{...}`);
+export async function getAbout() {
+  return client.fetch(groq`*[_type == "about"][0]{...}`);
 }
