@@ -49,8 +49,8 @@ export default async function page(params) {
 
         <section className="videoSingleVideos">
           {project.content.videos.map((video, i) => (
-            <div className="videoSingleVideo">
-              <div key={i} className="embedContainer">
+            <div key={i} className="videoSingleVideo">
+              <div className="embedContainer">
                 <>{parse(video.link)}</>
               </div>
               <div className="videoSingleInfo">
