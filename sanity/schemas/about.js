@@ -2,8 +2,8 @@ import { defineType } from "sanity";
 import { InfoFilledIcon } from "@sanity/icons";
 
 export default defineType({
-  name: "info",
-  title: "Info",
+  name: "about",
+  title: "About",
   type: "document",
 
   fields: [
@@ -17,7 +17,8 @@ export default defineType({
           styles: [{ title: "Normal", value: "normal" }],
           lists: [],
           marks: {
-            decorators: [{ title: "Emphasis", value: "em" }],
+            decorators: [],
+            annotations: [],
           },
         },
       ],
@@ -47,6 +48,36 @@ export default defineType({
           fields: [
             { name: "name", type: "string" },
             { name: "role", type: "string" },
+            { name: "link", type: "url" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "partner",
+      type: "array",
+      of: [
+        {
+          name: "partner",
+          type: "object",
+          fields: [
+            { name: "name", type: "string" },
+            { name: "role", type: "string" },
+            { name: "link", type: "url" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "links",
+      type: "array",
+      of: [
+        {
+          name: "link",
+          type: "object",
+          fields: [
+            { name: "name", type: "string" },
+            { name: "link", type: "string" },
           ],
         },
       ],

@@ -12,26 +12,12 @@ export default defineType({
       name: "title",
       type: "string",
     },
-    {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      validation: (Rule) =>
-        Rule.required().warning(
-          "Bitte einen einzigartigen SLUG generieren. Der Slug darf bei zwei gleichen Seminaren nicht der selbe sein."
-        ),
-      options: {
-        source: "title",
-      },
-    },
-    {
-      name: "type",
-      type: "string",
-    },
 
     {
       name: "preview",
+      title: "Preview (Startseite)",
       type: "object",
+      description: "Das ist die Fullscreen Preview auf der Startseite.",
       options: {
         collapsible: true,
         collapsed: true,
@@ -57,16 +43,28 @@ export default defineType({
         },
         {
           name: "text",
-          title: "Text",
-          type: "array",
-          of: [
+          title: "Previewtext",
+          type: "object",
+          initialValue: () => ({ color: "white" }),
+          fields: [
             {
-              type: "block",
-              styles: [{ title: "Normal", value: "normal" }],
-              lists: [],
-              marks: {
-                decorators: [{ title: "Emphasis", value: "em" }],
+              name: "text",
+              description:
+                "Das ist der kurze Previewtext auf der Startseite (2 – 3 Zeilen)",
+              type: "text",
+            },
+            {
+              name: "color",
+              type: "string",
+              options: {
+                list: [
+                  { title: "White", value: "white" },
+                  { title: "Black", value: "black" },
+                ],
+                layout: "radio",
               },
+              validation: (Rule) =>
+                Rule.required().error("Bitte eine Farbe auswählen."),
             },
           ],
         },
@@ -78,37 +76,55 @@ export default defineType({
       type: "object",
       options: {
         collapsible: true,
-        collapsed: true,
+        collapsed: false,
         modal: {
           type: "fullscreen",
           width: "auto",
         },
       },
       fields: [
-        { name: "embedded", type: "boolean" },
-
         {
-          name: "externalLink",
+          name: "introtext",
+          description: "Das ist der Introtext am Anfang der Projektseite.",
+          type: "text",
+          validation: (Rule) => Rule.required(),
+        },
+        {
+          name: "headerVideo",
           type: "string",
-          description: "Hier kann der Vimeo Link komplett eingefügt werden",
-          hidden: ({ parent }) => parent?.embedded === true,
+          description: "Hier bitte nur die Vimeo ID einfügen (8–10 Zeichen).",
+          validation: (Rule) => Rule.required(),
         },
         {
           name: "videos",
           type: "array",
-          hidden: ({ parent }) => parent?.embedded !== true,
           of: [
             {
               name: "video",
               type: "object",
               fields: [
-                { name: "name", type: "string" },
-                { name: "length", type: "string" },
+                {
+                  name: "title",
+                  type: "string",
+                  description:
+                    "Der Videotitel wird in der Navigation oben angezeigt.",
+                },
                 {
                   name: "link",
                   type: "string",
                   description:
-                    "Hier kann man die Vimeo Video-ID einfügen, für ein Vimeo-Preview-Video.",
+                    "Hier das <iframe/> Element von Youtube oder Vimeo einfügen.",
+                },
+                {
+                  name: "description",
+                  type: "text",
+                  description:
+                    "Kurzbeschreibung unter dem Video (ca. 2 – 3 Zeilen)",
+                },
+                {
+                  name: "length",
+                  type: "string",
+                  description: "Videolänge im Format: 123:45 min",
                 },
               ],
             },
@@ -116,7 +132,7 @@ export default defineType({
         },
         {
           name: "text",
-          title: "Text",
+          title: "Langer Text",
           type: "array",
           of: [
             {
@@ -124,12 +140,58 @@ export default defineType({
               styles: [{ title: "Normal", value: "normal" }],
               lists: [],
               marks: {
-                decorators: [{ title: "Bold", value: "strong" }],
+                decorators: [],
+                annotations: [],
               },
+            },
+          ],
+          validation: (Rule) => Rule.required(),
+        },
+        {
+          name: "infos",
+          type: "array",
+          of: [
+            {
+              name: "info",
+              type: "object",
+              fields: [
+                { name: "name", type: "string" },
+                { name: "position", type: "string" },
+              ],
+            },
+          ],
+        },
+        {
+          name: "fotos",
+          type: "object",
+          fields: [
+            {
+              name: "fotos",
+              type: "array",
+              of: [{ name: "foto", type: "image" }],
+            },
+            {
+              name: "description",
+              type: "text",
+              description:
+                "Kurzbeschreibung unter den Fotos (ca. 2 – 3 Zeilen)",
             },
           ],
         },
       ],
     },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      validation: (Rule) =>
+        Rule.required().warning(
+          "Bitte einen einzigartigen SLUG generieren. Der Slug darf bei zwei gleichen Projekten nicht der selbe sein."
+        ),
+      options: {
+        source: "title",
+      },
+    },
+    orderRankField({ type: "projects" }),
   ],
 });

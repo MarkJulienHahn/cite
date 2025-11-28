@@ -1,7 +1,6 @@
-import home from "./home";
-import info from "./info";
+import about from "./about";
 import projects from "./projects";
 
-const schemaTypes = [home, projects, info];
+const schemaTypes = [projects, about];
 
 export default schemaTypes;

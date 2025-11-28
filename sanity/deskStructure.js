@@ -5,16 +5,16 @@ export const myStructure = (S, context) =>
     .title("Content")
     .items([
       orderableDocumentListDeskItem({
-        type: "home",
-        title: "Home",
+        type: "projects",
+        title: "Projects",
         S,
         context,
       }),
 
       S.listItem()
-        .title("Info")
-        .id("info")
-        .child(S.document().schemaType("info").documentId("info")),
+        .title("About")
+        .id("about")
+        .child(S.document().schemaType("about").documentId("about")),
 
       S.divider(),
 
