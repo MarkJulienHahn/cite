@@ -22,24 +22,19 @@ const Nav = () => {
   }, [prevScrollPos]);
 
   return (
-    <div
-      className={`navWrapper ${visible ? "visible" : "hidden"}`}
-    >
-      <Link className={pathname === "/" ? "activeLink" : ""} href="/">
+    <div className={`navWrapper ${visible ? "visible" : "hidden"}`}>
+      <Link
+        className={
+          pathname !== "/info" && pathname !== "/impressum" ? "activeLink" : ""
+        }
+        href="/"
+      >
         Cite
       </Link>
-      {/* <Link className={pathname === "/liste" ? "activeLink" : ""} href="/liste">
-        Liste
-      </Link> */}
+
       <Link className={pathname === "/info" ? "activeLink" : ""} href="/info">
         Info
       </Link>
-      {/* <Link
-        className={pathname === "/kontakt" ? "activeLink" : ""}
-        href="/kontakt"
-      >
-        Kontakt
-      </Link> */}
     </div>
   );
 };

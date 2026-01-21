@@ -26,6 +26,7 @@ export default async function page() {
                         {person.name}{" "}
                         {person.link && (
                           <a
+                            className="clickable"
                             href={person.link}
                             target="_blank"
                             rel="noreferrer"
@@ -50,6 +51,7 @@ export default async function page() {
                         {person.name}{" "}
                         {person.link && (
                           <a
+                            className="clickable"
                             href={person.link}
                             target="_blank"
                             rel="noreferrer"
@@ -71,7 +73,12 @@ export default async function page() {
                 <ul className="personenWrapperLinks">
                   {about.links.map((link, i) => (
                     <li key={i}>
-                      <a href={link.link} target="_blank" rel="noreferrer">
+                      <a
+                        className="clickable"
+                        href={link.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         {link.name} ↗
                       </a>
                     </li>

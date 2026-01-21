@@ -1,5 +1,4 @@
 import { defineType } from "sanity";
-import { InfoFilledIcon } from "@sanity/icons";
 
 export default defineType({
   name: "about",

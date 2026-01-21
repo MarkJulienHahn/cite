@@ -55,3 +55,7 @@ export async function getProjects() {
 export async function getAbout() {
   return client.fetch(groq`*[_type == "about"][0]{...}`);
 }
+
+export async function getImpressum() {
+  return client.fetch(groq`*[_type == "impressum"][0]{...}`);
+}

@@ -10,12 +10,16 @@ export default async function Home() {
 
   return (
     <main>
-      {projects.map((entry, i) => (
-        <div key={i} className="homeEntryWrapper">
-          <HomeEntry entry={entry} />
-        </div>
-      ))}
-      <Footer />
+      <div className="homeEntriesWrapper">
+        {projects.map((entry, i) => (
+          <div key={i} className="homeEntryWrapper">
+            <HomeEntry entry={entry} />
+          </div>
+        ))}
+      </div>
+      <div className="footerHomeWrapper">
+        <Footer />
+      </div>
     </main>
   );
 }
