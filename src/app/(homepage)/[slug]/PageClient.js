@@ -21,7 +21,7 @@ export default function PageClient({ project, params }) {
           }
         });
       },
-      { root: null, threshold: 0.5 } // 50% of video visible
+      { root: null, threshold: 1 } // 50% of video visible
     );
 
     videoRefs.current.forEach((ref) => ref && observer.observe(ref));

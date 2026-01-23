@@ -14,7 +14,7 @@ const HomeEntry = ({ entry }) => {
 
   return (
     <>
-      <Link href={`/${slug?.current}?index=0`} scroll={false}>
+      <Link href={`/${slug?.current}?index=0`}>
         <div className="videoWrapper">
           <div className="embedContainer embed100vh">
             {videoID && (

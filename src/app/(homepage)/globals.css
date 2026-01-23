@@ -175,6 +175,9 @@ button {
 
 .refAnchor {
   transform: translateY(-100px);
+  position: absolute;
+  height: 100%;
+  z-index: 100;
 }
 
 .videoTitle {
@@ -189,7 +192,7 @@ button {
 }
 
 .videoTitle:hover .videoIcon {
-  background-color: var(--primary); /* Change this to your desired color */
+  background-color: var(--primary)
 }
 
 .videoIcon {
@@ -330,6 +333,7 @@ button {
 .videoSingleVideo {
   width: 100%;
   max-width: 1100px;
+  position: relative;
 }
 
 .videoSingleContent {
@@ -513,7 +517,7 @@ button {
   padding: var(--space-S);
   padding-top: var(--space-XL);
   margin-bottom: var(--space-L);
-  color: var(--grey)
+  color: var(--grey);
 }
 
 .impressum p {
