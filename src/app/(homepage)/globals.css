@@ -247,6 +247,12 @@ button {
   z-index: 0;
 }
 
+.videoSingleHeadline {
+  font-size: var(--fontSize-S);
+  line-height: var(--lineHeight-S);
+  letter-spacing: var(--letterSpacing-S);
+}
+
 .videoSingleIntro {
   width: 100%;
   display: flex;

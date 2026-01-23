@@ -59,6 +59,7 @@ export default function PageClient({ project, params }) {
       <section className="videoSingleVideos">
         {project.content.videos.map((video, i) => (
           <div key={i} className="videoSingleVideo">
+            <h2 className="videoSingleHeadline">{video.title}</h2>
             <div
               className="refAnchor"
               ref={(el) => (videoRefs.current[i] = el)}
