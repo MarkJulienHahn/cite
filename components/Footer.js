@@ -19,6 +19,15 @@ const Footer = () => {
             Instagram
           </a>
         </span>
+        <span>
+          <a
+            href="https://www.youtube.com/@cite_online"
+            target="_blank"
+            rel="noreferrer"
+          >
+            YouTube
+          </a>
+        </span>
       </div>
       <span>©Cite, {year}</span>
     </div>
