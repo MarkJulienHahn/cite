@@ -91,7 +91,7 @@ export default function PageClient({ project, params }) {
         </div>
       </section>
 
-      {project.content.fotos.fotos && (
+      {project.content.fotos?.fotos && (
         <Slider
           fotos={project.content.fotos.fotos}
           description={project.content.fotos.description}
