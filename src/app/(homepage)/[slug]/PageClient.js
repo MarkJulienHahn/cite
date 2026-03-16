@@ -82,7 +82,7 @@ export default function PageClient({ project, params }) {
 
       <section className="videoSingleInfoblock">
         <div className="videoSingleInfoblockInner">
-          {project.content.infos.map((info, i) => (
+          {project.content.infos?.map((info, i) => (
             <div className="videoSingleInfoblockRow" key={i}>
               <div>{info.name}</div>
               <div>{info.value}</div>
